@@ -1,0 +1,446 @@
+@import url('https://fonts.cdnfonts.com/css/interface-trial');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'InterFace Trial', sans-serif;
+  
+}
+
+body {
+  background-color: #20252D;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mainContainer {
+  width: 100% !important;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.homeContainer {
+  width: 100%;
+}
+
+.headerContainer {
+  width: 100%;
+  height: 70px;
+  background-color: #20252D;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    right: 50%;
+    height: fit-content;
+    background-color: rgb(255, 255, 255);
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.modalContainer {
+  margin: 0;
+  text-align: center;
+}
+
+.loginHeader {
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  padding: 15px 0 0 0;
+}
+
+.newCustomer {
+  padding: 10px 15px 20px 15px;
+  font-size: 14px;
+  letter-spacing: -0.1px;
+  font-weight: 500;
+}
+
+.modalContainer hr {
+  border-top: 1px solid rgba(154, 154, 154, 0.37);
+}
+
+.register {
+  border-bottom: 1px dotted;
+  color: #4ECF7A;
+  cursor: pointer;
+}
+
+.forgotPassword {
+  color: #4ECF7A;
+  text-align: center;
+  font-weight: 700;
+  font-size: 12px;
+
+}
+
+.closeModal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+
+}
+
+.loginForm {
+  width: 90%;
+  margin: 25px auto 25px auto;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.loginForm label {
+  font-size: 14px;
+}
+.loginForm input {
+  width: 100%;
+  height: 35px;
+  padding-left: 15px;
+  border: 1px solid rgba(154, 154, 154, 0.37);
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+
+.loginForm button {
+  width: 50%;
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  color: #fff;
+  background-color: #4ECF7A;
+  border: 1px solid #4ECF7A;
+  border-radius: 2px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 200px;
+  padding-left: 15px;
+}
+
+.CTA {
+  display: flex;
+  gap: 5px;
+  padding-right: 15px;
+  
+}
+
+.welcomeMessage {
+  font-size: 14px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+.errorMessage {
+  background-color: rgb(247, 92, 92);
+}
+
+.login {
+  width: 110px;
+  background-color: #4ECF7A;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  border: #4ECF7A solid;
+  border-radius: 2px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.signup {
+  width: 110px;
+  background-color: #fff;
+  color: #4ECF7A;
+  font-weight: 800;
+  font-size: 14px;
+  border: 1px #4ECF7A solid;
+  border-radius: 2px;
+  padding: 5px 10px;
+  cursor: pointer
+}
+
+
+.navContainer {
+  height: 60px;
+  width: 100%;
+  background-color: #0d0e12dc;
+  display: flex;
+  position: absolute;
+}
+
+.navigation {
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  color: #bdbcbc;
+  font-weight: 700;
+  
+}
+
+.navItem {
+  height: 100%;
+  display: grid;
+  align-items: center;
+  text-align: center;
+}
+
+.active1 {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  border-bottom: #4ECF7A 4px solid;
+}
+.active2 {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  border-bottom: rgb(202, 36, 36) 4px solid;
+}
+.active3 {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  border-bottom: rgb(0, 170, 204) 4px solid;
+}
+.active4 {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  border-bottom: rgb(179, 17, 77) 4px solid;
+}
+.active5 {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  border-bottom: rgb(132, 52, 146) 4px solid;
+}
+
+.contentContainer {
+  background-color: #bdbcbc;
+  width: 100%;
+  height: 100%;
+}
+
+.coverImage {
+  position: fixed;
+  right: 0;
+  width: 40%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.dummyText {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #e9eae9;
+}
+
+@media (max-width: 1200px) {
+  .dummyText {
+    left: 5%;
+  }
+}
+
+.dummyText p {
+  font-size: 32px;
+  font-weight: 800;
+}
+.dummyText span {
+  color: #4ECF7A;
+}
+.dummyText h1 {
+  font-size: 82px;
+  font-weight: 800;
+  color: #4ECF7A;
+}
+
+
+
+.dummyPage {
+  width: 60%;
+  margin: 10% auto;
+  color: #e9eae9;
+}
+
+.footerContainer {
+  height: 140px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #0d0e12dc;
+}
+
+.footerContent{
+  width: 80%;
+  margin: auto;
+  color: #fff;
+  text-align: center;
+}
+
+.footerContent p {
+  font-size: 12px;
+  padding: 15px 0 10px 0 ;
+}
+
+.footerContent h2 {
+  font-size: 22px;
+  padding: 0 0 10px 0;
+}
+
+.ctaButton1 {
+  width: 300px;
+  background-color: #4ECF7A;
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  border: #4ECF7A solid;
+  border-radius: 2px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.ctaButton2 {
+  width: 300px;
+  background-color: rgb(202, 36, 36);
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  border: rgb(202, 36, 36) solid;
+  border-radius: 2px;
+  padding: 10px 12px;
+  cursor: pointer
+}
+.ctaButton3 {
+  width: 300px;
+  background-color: rgb(0, 170, 204);
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  border: rgb(0, 170, 204) solid;
+  border-radius: 2px;
+  padding: 10px 12px;
+  cursor: pointer
+}
+.ctaButton4 {
+  width: 300px;
+  background-color: rgb(179, 17, 77);
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  border: rgb(179, 17, 77) solid;
+  border-radius: 2px;
+  padding: 10px 12px;
+  cursor: pointer
+}
+.ctaButton5 {
+  width: 300px;
+  background-color: rgb(132, 52, 146);
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  border: rgb(132, 52, 146) solid;
+  border-radius: 2px;
+  padding: 10px 12px;
+  cursor: pointer
+}
+
+@media (max-width: 900px) {
+  .coverImage {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+  .modal {
+    top: 30%;
+    left: 20%;
+    right: 20%;
+    background-color: rgb(255, 255, 255);
+}
+
+.dummyText {
+  display: none;
+}
+}
+
+@media (max-width: 716px) {
+  .navigation {
+    width: 100%;
+    font-size: 12px;
+  }
+  .login {
+    font-size: 12px;
+    width: 65px;
+    padding: 0;
+  }
+  .signup {
+    font-size: 12px;
+    width: 75px;
+    padding: 6px 0;
+  }
+  .logo {
+    width: 150px;
+  }
+  .headerContainer {
+    height: 55px;
+  }
+  .navContainer {
+    height: 45px;
+  }
+  .footerContent button {
+    width: 95%;
+  }
+  .dummyPage {
+    width: 60%;
+    margin: 20% auto;
+  }
+  
+}
+
+@media (max-width: 540px) {
+  .modal {
+    left: 0;
+    right: 0;
+}
+}
+
+@media (max-width: 425px) {
+  
+  .logo {
+    width: 120px;
+  }
+}
