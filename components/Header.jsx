@@ -53,7 +53,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ name, whatsapp }),
       });
 
       const data = await response.json();
