@@ -7,9 +7,12 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // set state to form data
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [idade, setIdade] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
+  const [igreja, setIgreja] = useState("");
 
   // Success message
   const [successMessage, setSuccessMessage] = useState(null);
@@ -24,23 +27,23 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
     event.preventDefault();
 
     // Perform client-side validation
-    if (!username || !password) {
-      setError("Email and password are required fields");
-      return;
-    }
+    // if (!username || !password) {
+    //   setError("Email and password are required fields");
+    //   return;
+    // }
 
     // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(username)) {
-      setError("Please enter a valid email address");
-      return;
-    }
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (!emailRegex.test(username)) {
+    //   setError("Please enter a valid email address");
+    //   return;
+    // }
 
     // Validate password length
-    if (password.length < 8) {
-      setError("Password must be at least 8 characters long");
-      return;
-    }
+    // if (password.length < 8) {
+    //   setError("Password must be at least 8 characters long");
+    //   return;
+    // }
 
     setError("");
 
@@ -74,9 +77,13 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
     }
 
     // clearing input data
-    setUsername("");
-    setPassword("");
     setName("");
+    setIdade("");
+    setWhatsapp("");
+    setIgreja("");
+
+    // setUsername("");
+    // setPassword("");
   };
 
   return (
@@ -113,25 +120,34 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
                 required
                 onChange={(e) => setName(e.target.value)}
               />
-              <label>Email</label> <br />
+              <label>Idade</label> <br />
               <input
-                type="email"
-                id="username"
-                value={username}
-                placeholder="Username"
+                type="number"
+                id="idade"
+                value={idade}
+                placeholder="0"
                 required
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setIdade(e.target.value)}
+              />
+              <label>Whatsapp</label> <br />
+              <input
+                type="tel"
+                id="whatsapp"
+                value={whatsapp}
+                placeholder="(00) 00000-0000"
+                maxLength="11"
+                required
+                onChange={(e) => setWhatsapp(e.target.value)}
               />
               <br />
-              <label>Password</label> <br />
+              <label>Igreja / Congregação</label> <br />
               <input
-                type="password"
-                id="password"
-                value={password}
-                placeholder="Password"
+                type="text"
+                id="igreja"
+                value={igreja}
+                placeholder="igreja"
                 required
-                minLength={8}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setIgreja(e.target.value)}
               />
               <button type="submit">Enviar</button>
             </form>
