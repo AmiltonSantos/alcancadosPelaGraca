@@ -6,10 +6,10 @@ const Content = () => {
       <img className="coverImage" src="/the-hunch-mobile.webp" alt="" />
       <div className="dummyText">
         <p>
-          100% FIRST DEPOSIT MATCH <span>UP TO</span>
+          O EVENTO MAS ESPERADO EM <span>2023</span>
         </p>
-        <h1>R1,000</h1>
-        <p>Sports Welcome Bonus</p>
+        <h1>ALCANÇADOS PELA GRAÇA</h1>
+        <p>Venha e participe!</p>
       </div>
     </div>
   );

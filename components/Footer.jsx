@@ -50,6 +50,7 @@ const Footer = ({ openModal }) => {
           {data.button}
         </button>
         <h2>{data.heading}</h2>
+        <p>amilton.dev</p>
         {isConfettiActive && (
           <Confetti
             width={window.innerWidth}

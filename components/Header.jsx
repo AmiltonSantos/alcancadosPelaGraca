@@ -62,7 +62,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
         // Print register message and close register modal after 4 seconds
         setSuccessMessage(`Welcome back ${data.name}`);
         setregisterMessage(
-          `Please check your email, your free bets are on the way!`
+          `Ainda está em desenlvimento por amilton.dev!`
         );
         setTimeout(() => setIsOpen(false), 2000);
         setTimeout(() => setSuccessMessage(""), 2000);
