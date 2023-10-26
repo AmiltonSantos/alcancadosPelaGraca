@@ -71,6 +71,9 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
         setTimeout(() => setSuccessMessage(""), 2000);
         setTimeout(() => closeModal(), 4000);
         setTimeout(() => setregisterMessage(""), 4000);
+
+        //Link do grupo do whatsapp
+        document.location.href = 'https://chat.whatsapp.com/GsXG9wJeSrY5xHcDDEW8EK';
       }
     } catch (error) {
       console.error(error);
