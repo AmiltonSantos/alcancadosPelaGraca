@@ -7,8 +7,6 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // set state to form data
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [idade, setIdade] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -26,46 +24,44 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Perform client-side validation
-    // if (!username || !password) {
-    //   setError("Email and password are required fields");
-    //   return;
-    // }
-
-    // Validate email format
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // if (!emailRegex.test(username)) {
-    //   setError("Please enter a valid email address");
-    //   return;
-    // }
-
-    // Validate password length
-    // if (password.length < 8) {
-    //   setError("Password must be at least 8 characters long");
-    //   return;
-    // }
+    // Validar Whatsa
+    if (whatsapp.length < 11) {
+      setError("Erro! São 11 números o WhatsApp");
+      setWhatsapp("");
+      return;
+    }
 
     setError("");
 
-    try {
-      const response = await fetch("/api/formSubmission", {
+    try { //https://sheet.best/api/sheets/ee05e664-7147-42c3-9553-1452c08caf63    //   https://sheetdb.io/api/v1/9i0ongodfdtta
+      const response = await fetch("https://sheetdb.io/api/v1/9i0ongodfdtta", {
         method: "POST",
         headers: {
+          Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, whatsapp }),
+        body: JSON.stringify({
+          data: [
+            {
+              id: "=ROW()-1",
+              name,
+              idade,
+              whatsapp,
+              igreja,
+              datainscricao: new Date().toLocaleDateString(),
+            },
+          ],
+        }),
       });
 
       const data = await response.json();
-      console.log(`Welcome ${data.name}!`);
 
       if (response.ok) {
-        
-        // Print welcome message and close login modal after 2 seconds
+
         // Print register message and close register modal after 4 seconds
-        setSuccessMessage(`Welcome back ${data.name}`);
+        setSuccessMessage(`${data.created === 1 ? 'Cadastrado com sucesso' : 'Error ao cadastrar'}`);
         setregisterMessage(
-          `Ainda está em desenlvimento por amilton.dev!`
+          `Cadastrado com sucesso!`
         );
         setTimeout(() => setIsOpen(false), 2000);
         setTimeout(() => setSuccessMessage(""), 2000);
@@ -74,6 +70,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
 
         //Link do grupo do whatsapp
         document.location.href = 'https://chat.whatsapp.com/GsXG9wJeSrY5xHcDDEW8EK';
+
       }
     } catch (error) {
       console.error(error);
@@ -85,8 +82,6 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
     setWhatsapp("");
     setIgreja("");
 
-    // setUsername("");
-    // setPassword("");
   };
 
   return (
@@ -134,7 +129,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
               />
               <label>Whatsapp</label> <br />
               <input
-                type="tel"
+                type="phone"
                 id="whatsapp"
                 value={whatsapp}
                 placeholder="(00) 00000-0000"
@@ -159,6 +154,11 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
             </div>
             {registerMessage && (
               <p className="welcomeMessage">{registerMessage}</p>
+            )}
+
+            {error && <p className="errorMessage">{error}</p>}
+            {successMessage && (
+              <p className="welcomeMessage">{successMessage}</p>
             )}
           </div>
         </Modal>
