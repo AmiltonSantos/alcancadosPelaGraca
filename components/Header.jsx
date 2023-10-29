@@ -94,7 +94,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
           `Cadastrado com sucesso!`
         );
 
-        setTimeout(() => closeModal(), setTimeout(() => toggleModal(), 2000));
+        setTimeout(() => closeModal(), setTimeout(() => toggleModal(), 500));
 
       }
     } catch (error) {
