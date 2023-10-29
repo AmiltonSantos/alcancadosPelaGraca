@@ -141,6 +141,20 @@ a {
   padding-left: 15px;
 }
 
+.taxa {
+  width: 170px;
+  padding-left: 15px;
+}
+
+.divPix {
+  display: flex;
+  justify-content: space-around;
+}
+
+.corIconPix {
+  color: red;
+}
+
 .CTA {
   display: flex;
   gap: 5px;
@@ -333,6 +347,19 @@ a {
   border-radius: 2px;
   padding: 10px 12px;
   cursor: pointer;
+}
+
+.ctaButtonTaxa {
+  width: 200px;
+  background-color: #4ECF7A;
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  border: #4ECF7A solid;
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  margin-bottom: 15px;
 }
 .ctaButton2 {
   width: 300px;

@@ -1,10 +1,22 @@
 import Link from "next/link";
 import { useState } from "react";
 import Modal from "react-modal";
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 const Header = ({ openModal, closeModal, modalIsOpen }) => {
   // set state to open/close modal
   const [isOpen, setIsOpen] = useState(false);
+
+
+  function toggleModal() {
+    setIsOpen(!isOpen);
+    if (isOpen === true) {
+      //Link do grupo do whatsapp
+      document.location.href = 'https://chat.whatsapp.com/GsXG9wJeSrY5xHcDDEW8EK';
+    }
+  }
+
+  const numeroPix = '00184519000177';
 
   // set state to form data
   const [name, setName] = useState("");
@@ -62,13 +74,13 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({            
-            id: "=ROW()-1",
-            name,
-            idade,
-            whatsapp,
-            igreja,
-            datainscricao: new Date().toLocaleString(),
+        body: JSON.stringify({
+          id: "=ROW()-1",
+          name,
+          idade,
+          whatsapp,
+          igreja,
+          datainscricao: new Date().toLocaleString(),
         }),
       });
 
@@ -81,13 +93,8 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
         setregisterMessage(
           `Cadastrado com sucesso!`
         );
-        setTimeout(() => setIsOpen(false), 2000);
-        setTimeout(() => setSuccessMessage(""), 2000);
-        setTimeout(() => closeModal(), 4000);
-        setTimeout(() => setregisterMessage(""), 4000);
 
-        //Link do grupo do whatsapp
-        document.location.href = 'https://chat.whatsapp.com/GsXG9wJeSrY5xHcDDEW8EK';
+        setTimeout(() => closeModal(), setTimeout(() => toggleModal(), 2000));
 
       }
     } catch (error) {
@@ -180,6 +187,35 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
             )}
           </div>
         </Modal>
+
+        <Modal
+          className="modal"
+          isOpen={isOpen}
+          onRequestClose={toggleModal}
+          ariaHideApp={false}
+        >
+          <div className="modalContainer">
+            <br></br>
+            <img src="/taxaInscricao.png" className="taxa" alt="" />
+            <hr />
+
+            <br></br>
+            <h3>Igreja Evangélica Assembleia de Deus Ministerio Missao</h3>
+
+            <br></br>
+            <div className="divPix">
+              <h3> CNPJ Pix: 00.184.519/0001-77</h3>
+              <ContentCopyIcon className="corIconPix" onClick={() => { navigator.clipboard.writeText(numeroPix) }} />
+            </div>
+
+            <br></br>
+            <h3>Caixa Econômica</h3>
+
+            <br></br>
+            <button className="ctaButtonTaxa" onClick={toggleModal}>Entre no Grupo do WhatsApp</button>
+          </div>
+        </Modal>
+
       </div>
     </div>
   );

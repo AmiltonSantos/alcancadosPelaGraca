@@ -1,6 +1,7 @@
 {
-  "name": "next.js-technical-assessment",
+  "name": "alcancados-pela-graca-2023",
   "version": "0.1.0",
+  "author": "Amilton Santos",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +10,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
+    "@mui/icons-material": "5.14.9",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-confetti": "6.1.0",
