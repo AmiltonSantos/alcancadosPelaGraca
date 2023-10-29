@@ -2,11 +2,14 @@ import Link from "next/link";
 import { useState } from "react";
 import Modal from "react-modal";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import { BeatLoader } from 'react-spinners';
+import styled from 'styled-components'
 
 const Header = ({ openModal, closeModal, modalIsOpen }) => {
   // set state to open/close modal
   const [isOpen, setIsOpen] = useState(false);
 
+  const [loading, setLoading] = useState(false);
 
   function toggleModal() {
     setIsOpen(!isOpen);
@@ -16,7 +19,22 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
     }
   }
 
-  const numeroPix = '00184519000177';
+  const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+  `
+
+  function LoadingComponent() {
+    return <Container className="App">
+            <h1>Enviando...</h1>
+            <BeatLoader loading={setLoading} size={60} color={"#36d7b7"} />
+          </Container>
+  }
+
+  const numeroPix = 'gerenciaferroeacoindiara@gmail.com';
 
   // set state to form data
   const [name, setName] = useState("");
@@ -44,6 +62,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
     }
 
     setError("");
+    setLoading(true);
 
     try {
       /* Usando o -> https://sheetdb.io */
@@ -80,24 +99,27 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
           idade,
           whatsapp,
           igreja,
-          datainscricao: new Date().toLocaleString(),
+          datainscricao: (new Date().toLocaleString()).toString().replace(',', '')
         }),
       });
+
+      setLoading(false);
 
       const data = await response.json();
 
       if (response.ok) {
 
-        //setSuccessMessage(`${data.created === 1 ? 'Cadastrado com sucesso' : 'Error ao cadastrar'}`); //usado no https://sheetdb.io
+        // setSuccessMessage(`${data.created === 1 ? 'Cadastrado com sucesso' : 'Error ao cadastrar'}`); //usado no https://sheetdb.io
         setSuccessMessage(data[0].name + ' Cadastrado com sucesso!'); //usado no https://sheet.best/api/sheets 
         setregisterMessage(
           `Cadastrado com sucesso!`
         );
 
-        setTimeout(() => closeModal(), setTimeout(() => toggleModal(), 500));
+        setTimeout(() => closeModal(), setTimeout(() => toggleModal(), 200));
 
       }
     } catch (error) {
+      setLoading(false);
       console.error(error);
     }
 
@@ -127,6 +149,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
           onRequestClose={closeModal}
           ariaHideApp={false}
         >
+          {loading && <LoadingComponent />}
           <div className="modalContainer">
             <h3 className="loginHeader">Inscreva-se para o Evento</h3>
             <p className="newCustomer">
@@ -187,7 +210,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
             )}
           </div>
         </Modal>
-
+                      
         <Modal
           className="modal"
           isOpen={isOpen}
@@ -200,16 +223,16 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
             <hr />
 
             <br></br>
-            <h3>Igreja Evangélica Assembleia de Deus Ministerio Missao</h3>
+            <h3>Marcos Rodrigues dos Santos</h3>
 
             <br></br>
             <div className="divPix">
-              <h3> CNPJ Pix: 00.184.519/0001-77</h3>
+              <h3> Pix E-mail: gerenciaferroeacoindiara@gmail.com</h3>
               <ContentCopyIcon className="corIconPix" onClick={() => { navigator.clipboard.writeText(numeroPix) }} />
             </div>
 
             <br></br>
-            <h3>Caixa Econômica</h3>
+            <h3>Banco BMG</h3>
 
             <br></br>
             <button className="ctaButtonTaxa" onClick={toggleModal}>Entre no Grupo do WhatsApp</button>
