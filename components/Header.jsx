@@ -33,24 +33,42 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
 
     setError("");
 
-    try { //https://sheet.best/api/sheets/ee05e664-7147-42c3-9553-1452c08caf63    //   https://sheetdb.io/api/v1/9i0ongodfdtta
-      const response = await fetch("https://sheetdb.io/api/v1/9i0ongodfdtta", {
-        method: "POST",
+    try {
+      /* Usando o -> https://sheetdb.io */
+      // const response = await fetch("https://sheetdb.io/api/v1/9i0ongodfdtta", {
+      //   method: "POST",
+      //   headers: {
+      //     Accept: "application/json",
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     data: [
+      //       {
+      //         id: "=ROW()-1",
+      //         name,
+      //         idade,
+      //         whatsapp,
+      //         igreja,
+      //         datainscricao: new Date().toLocaleString(),
+      //       },
+      //     ],
+      //   }),
+      // });
+
+      /* Usando o -> https://sheet.best/api/sheets  */
+      const response = await fetch("https://sheet.best/api/sheets/ee05e664-7147-42c3-9553-1452c08caf63", {
+        method: 'POST',
+        mode: 'cors',
         headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          data: [
-            {
-              id: "=ROW()-1",
-              name,
-              idade,
-              whatsapp,
-              igreja,
-              datainscricao: new Date().toLocaleDateString(),
-            },
-          ],
+        body: JSON.stringify({            
+            id: "=ROW()-1",
+            name,
+            idade,
+            whatsapp,
+            igreja,
+            datainscricao: new Date().toLocaleString(),
         }),
       });
 
@@ -58,8 +76,8 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
 
       if (response.ok) {
 
-        // Print register message and close register modal after 4 seconds
-        setSuccessMessage(`${data.created === 1 ? 'Cadastrado com sucesso' : 'Error ao cadastrar'}`);
+        //setSuccessMessage(`${data.created === 1 ? 'Cadastrado com sucesso' : 'Error ao cadastrar'}`); //usado no https://sheetdb.io
+        setSuccessMessage(data[0].name + ' Cadastrado com sucesso!'); //usado no https://sheet.best/api/sheets 
         setregisterMessage(
           `Cadastrado com sucesso!`
         );
