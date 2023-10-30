@@ -1,19 +1,9 @@
-import { useState } from "react";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Pix = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function toggleModal() {
-    setIsOpen(!isOpen);
-    if (isOpen === true) {
-      //Link do grupo do whatsapp
-      document.location.href = 'https://chat.whatsapp.com/GsXG9wJeSrY5xHcDDEW8EK';
-    }
-  }
-
+  
   const numeroPix = 'gerenciaferroeacoindiara@gmail.com';
 
   const toastSuccess = () => toast.success('Pix cópiado com sucesso!');
@@ -48,7 +38,7 @@ const Pix = () => {
             <h3>Banco BMG</h3>
 
             <br></br>
-            <button className="ctaButtonTaxa" onClick={toggleModal}>Entre no Grupo do WhatsApp</button>
+
           </div>
   );
 };
