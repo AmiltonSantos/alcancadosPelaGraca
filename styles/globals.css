@@ -60,6 +60,12 @@ a {
   text-align: center;
 }
 
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .pixContainer {
   margin: 0;
   text-align: center;
@@ -70,7 +76,7 @@ a {
 .whatsappContainer {
   margin: 0;
   text-align: center;
-  padding-top: 80px;
+  padding-top: 60px;
   background-color: white;
 }
 
