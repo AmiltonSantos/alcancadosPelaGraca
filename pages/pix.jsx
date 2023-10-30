@@ -19,20 +19,22 @@ const Pix = () => {
 
             <br></br>
             <div className="divPix" onClick={toastSuccess}>
-              <h3> Pix E-mail: gerenciaferroeacoindiara@gmail.com</h3>
+              <p>Cópiar pix...</p>
               <ContentCopyIcon className="corIconPix" onClick={() => { navigator.clipboard.writeText(numeroPix) }} />
-              <ToastContainer
-                position="bottom-right"
-                autoClose={4000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-              />
             </div>
+            <h3> Pix E-mail: gerenciaferroeacoindiara@gmail.com</h3>
+            <ToastContainer
+              position="bottom-left"
+              autoClose={2500}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
+            
 
             <br></br>
             <h3>Banco BMG</h3>
