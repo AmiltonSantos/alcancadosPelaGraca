@@ -20,6 +20,8 @@ const Footer = ({ openModal }) => {
 
   if (router.pathname === "/") {
     className = "ctaButton1";
+  } else if (router.pathname === "/pix") {
+    className = "ctaButton2";
   }
 
   // storing fetched data to state

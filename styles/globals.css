@@ -60,6 +60,13 @@ a {
   text-align: center;
 }
 
+.pixContainer {
+  margin: 0;
+  text-align: center;
+  padding-top: 60px;
+  background-color: white;
+}
+
 .loginHeader {
   font-size: 20px;
   letter-spacing: -0.5px;
@@ -218,6 +225,7 @@ a {
 }
 
 .navItem {
+  width: 120px;
   height: 100%;
   display: grid;
   align-items: center;
@@ -225,6 +233,7 @@ a {
 }
 
 .active1 {
+  width: 120px;
   display: grid;
   align-items: center;
   text-align: center;
@@ -232,6 +241,7 @@ a {
   border-bottom: #4ECF7A 4px solid;
 }
 .active2 {
+  width: 120px;
   display: grid;
   align-items: center;
   text-align: center;
@@ -338,7 +348,7 @@ a {
 }
 
 .ctaButton1 {
-  width: 300px;
+  width: 600px;
   background-color: #4ECF7A;
   color: #fff;
   font-weight: 800;
@@ -349,20 +359,8 @@ a {
   cursor: pointer;
 }
 
-.ctaButtonTaxa {
-  width: 200px;
-  background-color: #4ECF7A;
-  color: #fff;
-  font-weight: 800;
-  font-size: 16px;
-  border: #4ECF7A solid;
-  border-radius: 12px;
-  padding: 10px 12px;
-  cursor: pointer;
-  margin-bottom: 15px;
-}
 .ctaButton2 {
-  width: 300px;
+  width: 600px;
   background-color: rgb(202, 36, 36);
   color: #fff;
   font-weight: 800;
@@ -404,6 +402,19 @@ a {
   border-radius: 2px;
   padding: 10px 12px;
   cursor: pointer
+}
+
+.ctaButtonTaxa {
+  width: 200px;
+  background-color: #4ECF7A;
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  border: #4ECF7A solid;
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  margin-bottom: 15px;
 }
 
 @media (max-width: 900px) {
