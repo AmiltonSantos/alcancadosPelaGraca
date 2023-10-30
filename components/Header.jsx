@@ -3,7 +3,8 @@ import { useState } from "react";
 import Modal from "react-modal";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { BeatLoader } from 'react-spinners';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { IMaskInput } from "react-imask";
 
 const Header = ({ openModal, closeModal, modalIsOpen }) => {
   // set state to open/close modal
@@ -29,9 +30,9 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
 
   function LoadingComponent() {
     return <Container className="App">
-            <h1>Enviando...</h1>
-            <BeatLoader loading={setLoading} size={60} color={"#36d7b7"} />
-          </Container>
+      <h1>Enviando...</h1>
+      <BeatLoader loading={setLoading} size={60} color={"#36d7b7"} />
+    </Container>
   }
 
   const numeroPix = 'gerenciaferroeacoindiara@gmail.com';
@@ -55,7 +56,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
     event.preventDefault();
 
     // Validar Whatsa
-    if (whatsapp.length < 11) {
+    if (whatsapp.length < 14) {
       setError("Erro! São 11 números o WhatsApp");
       setWhatsapp("");
       return;
@@ -80,7 +81,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
       //         idade,
       //         whatsapp,
       //         igreja,
-      //         datainscricao: new Date().toLocaleString(),
+      //         datainscricao: (new Date().toLocaleString()).toString().replace(',', '')
       //       },
       //     ],
       //   }),
@@ -176,22 +177,20 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
                 onChange={(e) => setIdade(e.target.value)}
               />
               <label>Whatsapp</label> <br />
-              <input
-                type="phone"
-                id="whatsapp"
+              <IMaskInput
+                mask="(00) 00000-0000"
                 value={whatsapp}
                 placeholder="(00) 00000-0000"
-                maxLength="11"
-                required
                 onChange={(e) => setWhatsapp(e.target.value)}
               />
+
               <br />
               <label>Igreja / Congregação</label> <br />
               <input
                 type="text"
                 id="igreja"
                 value={igreja}
-                placeholder="igreja"
+                placeholder="Onde congrega"
                 required
                 onChange={(e) => setIgreja(e.target.value)}
               />
@@ -210,7 +209,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
             )}
           </div>
         </Modal>
-                      
+
         <Modal
           className="modal"
           isOpen={isOpen}
