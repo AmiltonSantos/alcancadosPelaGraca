@@ -16,7 +16,7 @@ const Pix = () => {
 
   const numeroPix = 'gerenciaferroeacoindiara@gmail.com';
 
-  const toastSuccess = () => toast.success('Pix oópiado com sucesso!');
+  const toastSuccess = () => toast.success('Pix cópiado com sucesso!');
 
   return (
     <div className="pixContainer">

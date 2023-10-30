@@ -22,7 +22,7 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
     }
   }
 
-  const toastSuccess = () => toast.success('Pix oópiado com sucesso!');
+  const toastSuccess = () => toast.success('Pix cópiado com sucesso!');
 
   const Container = styled.div`
     display: flex;
