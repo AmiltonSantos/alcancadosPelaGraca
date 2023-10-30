@@ -5,6 +5,8 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { BeatLoader } from 'react-spinners';
 import styled from 'styled-components';
 import { IMaskInput } from "react-imask";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = ({ openModal, closeModal, modalIsOpen }) => {
   // set state to open/close modal
@@ -19,6 +21,8 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
       document.location.href = 'https://chat.whatsapp.com/GsXG9wJeSrY5xHcDDEW8EK';
     }
   }
+
+  const toastSuccess = () => toast.success('Pix oópiado com sucesso!');
 
   const Container = styled.div`
     display: flex;
@@ -225,9 +229,20 @@ const Header = ({ openModal, closeModal, modalIsOpen }) => {
             <h3>Marcos Rodrigues dos Santos</h3>
 
             <br></br>
-            <div className="divPix">
+            <div className="divPix" onClick={toastSuccess}>
               <h3> Pix E-mail: gerenciaferroeacoindiara@gmail.com</h3>
               <ContentCopyIcon className="corIconPix" onClick={() => { navigator.clipboard.writeText(numeroPix) }} />
+              <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
             </div>
 
             <br></br>
