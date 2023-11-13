@@ -166,6 +166,10 @@ a {
   padding-left: 15px;
 }
 
+.pixTaxa {
+  width: 380px;
+  padding-left: 15px;
+}
 .divPix {
   display: flex;
   justify-content: space-evenly;
