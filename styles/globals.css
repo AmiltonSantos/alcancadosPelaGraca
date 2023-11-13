@@ -169,6 +169,7 @@ a {
 .pixTaxa {
   width: 380px;
   padding-left: 15px;
+  padding-bottom: 15px;
 }
 .divPix {
   display: flex;
